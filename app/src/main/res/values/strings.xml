@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MultiTextView</string>
+    <string name="showAllText">全文</string>
+    <string name="hideAllText">隐藏</string>
+</resources>
