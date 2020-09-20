@@ -41,13 +41,11 @@ class MainActivity : AppCompatActivity() {
             multiTextEntity.isShowAll,
             object : MultiTextView.Callback {
                 override fun onExpand() {
-                    showToast("show all text")
                     tvShowAll.visibility = View.VISIBLE
                     tvShowAll.text = resources.getText(R.string.hideAllText)
                 }
 
                 override fun onCollapse() {
-                    showToast("hide all text")
                     tvShowAll.visibility = View.VISIBLE
                     tvShowAll.text = resources.getText(R.string.showAllText)
                 }
@@ -61,6 +59,16 @@ class MainActivity : AppCompatActivity() {
         tvShowAll.setOnClickListener {
             multiTextEntity.isShowAll = !multiTextEntity.isShowAll
             mtvContent.setChanged(multiTextEntity.isShowAll)
+        }
+        mtvContent.onTextClickListener = object :MultiTextView.OnTextClickListener{
+            override fun onTopicClick(topic: Topic) {
+                showToast("topic title is ${topic.title}")
+            }
+
+            override fun onAtClick(name: String, id: Long) {
+                showToast("name is $name")
+            }
+
         }
     }
 
